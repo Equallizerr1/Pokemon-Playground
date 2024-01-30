@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { getRandomPokemon } from "../utils/api";
 import PokemonCard from "./PokemonCard";
-import { typeHandler, arrangeData } from "../utils/type-handler";
+import { arrangeData } from "../utils/type-handler";
 
 const PokemonFetcher = () => {
 	// can be condensed
@@ -14,6 +14,7 @@ const PokemonFetcher = () => {
 	};
 
 	const handleYes = () => {
+		//console.log(getRandomPokemon());
 		getRandomPokemon().then((res) => {
 			//console.log(res);
 			//setPokemon(res);

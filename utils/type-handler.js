@@ -6,9 +6,9 @@
 // };
 
 export const arrangeData = (pokemon) => {
-	//console.log(pokemon);
-	const typeArray = pokemon.types.map((element) => {
-		return element.type.name;
+	const typesArray = pokemon[0].data.types;
+	const pokemonTypesMap = typesArray.map((element) => {
+		return element.type.name + " ";
 	});
-	return [pokemon, typeArray];
+	return [pokemon, pokemonTypesMap];
 };

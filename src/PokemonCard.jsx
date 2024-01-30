@@ -16,30 +16,26 @@ const bull = (
 );
 
 export default function PokemonCard(props) {
-	console.log(props.pokemon[0]);
-	const pokemonData = props.pokemon[0];
+	console.log(props.pokemon[0][1].data.flavor_text_entries);
+	const pokemonName = props.pokemon[0][0].data.name;
+	const pokemonSprite = props.pokemon[0][0].data.sprites.front_default;
 	const pokemonTypes = props.pokemon[1];
+	const pokemonFlavorText =
+		props.pokemon[0][1].data.flavor_text_entries[0].flavor_text;
 	return (
-		<Card sx={{ minWidth: 275 }}>
-			<CardMedia
-				sx={{ height: 350 }}
-				image={pokemonData.sprites.front_default}
-			/>
+		<Card sx={{ minWidth: 500, maxWidth: 500 }}>
 			<CardContent>
-				<Typography variant="h5" component="div">
-					{pokemonData.name}
+				<CardMedia sx={{ height: 500 }} image={pokemonSprite} />
+				<Typography variant="h3" component="div">
+					{pokemonName}
 				</Typography>
 				<Typography sx={{ mb: 1.5 }} color="text.secondary">
 					Type: {pokemonTypes}
 				</Typography>
-				<Typography variant="body2">
-					well meaning and kindly.
-					<br />
-					{'"a benevolent smile"'}
-				</Typography>
+				<Typography variant="body1">{pokemonFlavorText}</Typography>
 			</CardContent>
 			<CardActions>
-				<Button size="small">Learn More</Button>
+				<Button size="medium">Learn More</Button>
 			</CardActions>
 		</Card>
 	);
